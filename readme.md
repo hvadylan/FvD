@@ -1,5 +1,5 @@
 # Procesverslag
-**Auteur:** Dylan Kho
+**Auteur:** -jouw naam-
 
 **Het werk:** [opdracht 1](opdracht1/index.html) en [opdracht 2](opdracht2/index.html)
 
