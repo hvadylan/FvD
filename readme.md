@@ -9,9 +9,15 @@ Markdown cheat cheet: [Hulp bij het schrijven van Markdown](https://github.com/a
 
 
 ## Bronnenlijst
-1. -bron 1-
-2. -bron 2-
-3. -...-
+1. Sanne
+2. https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+3. https://css-tricks.com/dark-modes-with-css/
+4. https://stackoverflow.com/questions/32306089/css-smooth-bounce-animation
+5. https://stackoverflow.com/questions/38888453/how-to-play-animation-on-hover
+6. https://stackoverflow.com/questions/12991164/maintaining-the-final-state-at-end-of-a-css3-animation
+7. https://www.w3schools.com/cssref/css3_pr_transform.asp
+8. https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path
+9. https://bennettfeely.com/clippy/
 
 
 
