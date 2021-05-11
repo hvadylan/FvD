@@ -19,6 +19,9 @@ html, body {
 body {
 	--kleurBroodje:#f18538;
 	--kleurBox: #E11123;
+	--streepjesdarkMode: white;
+	--darkMode: black;
+	--fontBurgerking: #D82516;
 	font-size:min(12vw, 5em);
 	display:flex;
 	justify-content: space-around;
@@ -49,7 +52,7 @@ h1 span:nth-of-type(1)  {
 h1 span:nth-of-type(2) {
 	font-family: burgerking;
 	font-size: .9em;
-	color: #D82516;
+	color:var(--fontBurgerking);
 } 
 
 section:hover h1 span:nth-of-type(2) {
@@ -59,7 +62,7 @@ section:hover h1 span:nth-of-type(2) {
 h1 span:nth-of-type(3) {
 	font-family: burgerking;
 	font-size: 1.4em;
-	color: #D82516;
+	color:var(--fontBurgerking);
 } 
 
 section:hover h1 span:nth-of-type(3) {
@@ -360,7 +363,7 @@ h2 span:nth-of-type(3) {
 		height:.6em;
 		left:-1em;
 		bottom:calc(100% + .2em);
-		background-color:white;
+		background-color:var(--streepjesdarkMode);
 		border-radius:.1em;
 	}
 
@@ -371,7 +374,7 @@ h2 span:nth-of-type(3) {
 		height:.6em;
 		left:.5em;
 		bottom:calc(100% + .4em);
-		background-color:white;
+		background-color:var(--streepjesdarkMode);
 		border-radius:.1em;
 	}
 
@@ -382,7 +385,7 @@ h2 span:nth-of-type(3) {
 		height:.6em;
 		left:-.6em;
 		bottom:calc(100% + 1.8em);
-		background-color:white;
+		background-color:var(--streepjesdarkMode);
 		border-radius:.1em;
 	}
 	
@@ -393,7 +396,7 @@ h2 span:nth-of-type(3) {
 		height:.6em;
 		left:.7em;
 		bottom:calc(100% + 1.6em);
-		background-color:white;
+		background-color:var(--streepjesdarkMode);
 		border-radius:.1em;
 	}
 
@@ -404,7 +407,7 @@ h2 span:nth-of-type(3) {
 		height:.6em;
 		left:-.7em;
 		bottom:calc(100% + 2.8em);
-		background-color:white;
+		background-color:var(--streepjesdarkMode);
 		border-radius:.1em;
 	}
 	
@@ -415,7 +418,7 @@ h2 span:nth-of-type(3) {
 		height:.6em;
 		left:.8em;
 		bottom:calc(100% + 2.6em);
-		background-color:white;
+		background-color:var(--streepjesdarkMode);
 		border-radius:.1em;
 	}
 
@@ -426,7 +429,7 @@ h2 span:nth-of-type(3) {
 		height:.6em;
 		left:-.8em;
 		bottom:calc(100% + 3.8em);
-		background-color:white;
+		background-color:var(--streepjesdarkMode);
 		border-radius:.1em;
 	}
 	
@@ -437,14 +440,14 @@ h2 span:nth-of-type(3) {
 		height:.6em;
 		left:.9em;
 		bottom:calc(100% + 3.6em);
-		background-color:white;
+		background-color:var(--streepjesdarkMode);
 		border-radius:.1em;
 	}
 
 	/* Animatie 2 */
 	h2 span:nth-of-type(2), h2 span:nth-of-type(3) {
 		width: 2em;
-		background-color: black;
+		background-color:var(--darkMode);
 	}
 
 	h2 span:last-child {
