@@ -7,7 +7,16 @@
 			 url('../fonts/eenfont.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
+}
 
+/* CUSTOM PROPERTIES */
+body {
+	--backgroundColor: #141414;
+	--fontColor: #ff0000;
+	--fontsubColor: white;
+	--kleurBorder: 	#B0B0B0;
+	--textDropzone: #585858;
+	--sticky: #4d4d4d69;
 }
 
 
@@ -16,12 +25,154 @@
   box-sizing:border-box;  
 }
 
-body {
+html, body {
   font-family:eenfont, sans-serif;
   color:#111;
-  background-color:#eee;
+  background-color:var(--backgroundColor);
+  display: flex;
+  flex-direction: column;
 }
 
+ul{
+	position:relative;
+    display:flex;
+	gap:1em;
+	overflow-x: scroll;/*  Maak niet meer responsive */
+	overflow-y: hidden;
+    list-style-type: none;
+	display: flex;
+	flex-direction: row; 
+	padding: 0;
+	margin: 0;
+}
+
+ul::-webkit-scrollbar {
+	display: flex;
+	display: none;
+}
+
+li {
+	position:relative;
+	flex: 0 0 6em;
+}
+
+img {
+	height: 15em;
+	width: 11em;
+}
+
+/* kruisje boven item in list */
+
+section:nth-of-type(3) ul:first-of-type li:hover::after,
+section:nth-of-type(3) ul:first-of-type li:focus::after {
+	content:"x";
+	position:absolute;
+	right:.25rem;
+	top:0;
+	color: var(--fontsubColor);
+	font-size:2em;
+	line-height:1em;
+	cursor: pointer;
+}
+
+/* grabbing */
+
+ul:not(#dropzone) li {
+	cursor:grab;
+}
+
+body.dragging ul:not(#dropzone) li { /* werkt niet */
+	cursor:grabbing;
+}
 
 /* BRAND STYLING */
 
+section h1 {
+	display: flex;
+	justify-content: center;
+	font-family:'Bebas Neue', cursive;
+	color: var(--fontColor);
+	font-size: 2em;
+	letter-spacing: .1em;
+}
+h2 {
+	font-family: 'Dosis', sans-serif;
+	color: var(--fontColor);
+	text-transform: uppercase;
+	font-size: 1em;
+	margin-left: .6em;	
+	letter-spacing: .05em;
+}
+
+h3 {
+	font-family: 'Dosis', sans-serif;
+	color: var(--fontsubColor);
+	margin-left: .6em;
+	letter-spacing: .05em;
+}
+
+/* PLACE AREA */
+
+section:nth-of-type(3) ul {
+	position: relative;
+	height: 14em;
+	width: 99%;
+	display: flex;
+	font-family: 'Dosis', sans-serif;
+	color: var(--textDropzone);
+	letter-spacing: .02em;
+	border-radius: 5px;
+	margin-left: .3em;
+}
+
+section:nth-of-type(3).scroll {
+	background-color: var(--sticky);
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	border: 2px;
+	border-radius: 5px;
+}
+
+/* hover op drop zone */
+
+section:nth-of-type(3) ul:hover {
+	height: 14rem;
+	border: 3px dashed var(--kleurBorder);
+}
+
+/* text dropzone */ 
+
+section:nth-of-type(3) ul::before {
+	content:"Drop here";
+	position:absolute;
+	left:50%;
+	top:50%;
+	color: var(--textDropzone);
+	text-transform: uppercase;
+	transform:translate(-50%, -50%);
+	font-size:3em;
+	white-space: nowrap;
+}
+/* verwijderd text dropzone */
+
+/* dragging */ 
+
+body.dragging section:nth-of-type(3) {
+	width: 99%;
+	border: 2px;
+	border-radius: 5px;
+	background-color: var(--textDropzone)
+}
+section:nth-of-type(3) img {
+	display: flex;
+	gap: 0;
+	height: 14rem;
+    width: 9rem;
+	margin: 0;
+	padding: 0;
+}
+
+/* CLASS WANNEER ER WORDT GEDROP TOEPASSEN */ 
+
+/* RESPONSIVE */ 
