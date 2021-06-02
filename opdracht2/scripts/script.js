@@ -11,26 +11,46 @@ new Sortable(
 		},
     animation: 150,
 		onAdd: function (/**Event*/evt) {
-			console.log(evt.item);
-			var nieuweFilm = evt.item;
+			const nieuweFilm = evt.item;
+			const geclonedFilm = evt.clone
 
-			if (nieuweFilm.classList.contains("liked")) {
-				console.log("staat er al in");
-			}
+			console.log(evt);
+
+			nieuweFilm.tabIndex = 0;
+
+			if (geclonedFilm.classList.contains("liked")) {
+				const alertMessage = document.querySelector(".alert");
+				alertMessage.textContent = "Deze film staat al in de lijst"
+				
+				setTimeout(function() {
+					alertMessage.textContent = ""
+				}, 2000);
+
+				nieuweFilm.remove();
+			}	
 
 			else {
-				nieuweFilm.classList.add("liked");
+				geclonedFilm.classList.add("liked");
 				console.log("voeg nieuwe film toe");
 			}
 			
+			nieuweFilm.addEventListener ('keydown', function(event){
+				if (event.key == 'Backspace') {
+					verwijderFilm(this);
+					geclonedFilm.classList.remove("liked");
+				}
+			});
 			nieuweFilm.addEventListener ("click", function(event){
-				let deFilm = this;
-				// console.log(this);
-				deFilm.remove();
+				verwijderFilm(this);
+				console.log(geclonedFilm);
 			});
 		}
 	}
 );
+
+function verwijderFilm (deFilm) {
+	deFilm.remove();
+}
 
 new Sortable(
 	nieuw,
