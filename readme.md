@@ -82,7 +82,9 @@ mij geholpen om dit op te lossen. Ik ben helaas niet aan alles toegekomen omdat 
  
 
 fout 1 makkelijk opgelost responsive deed het niet lag aan de flexbox.
+
 fout 2 list deed het niet zo opgelost
+
 3. inlog scherm waarbij ik niet aan bent toegekomen.
 
 ![image](https://user-images.githubusercontent.com/74244795/121052748-92724300-c7b2-11eb-8bcf-5b4a9687b725.png)
