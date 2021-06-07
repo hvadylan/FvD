@@ -4,44 +4,86 @@
 @font-face {
 	font-family: 'eenfont';
 	src: url('../fonts/eenfont.woff2') format('woff2'),
-			 url('../fonts/eenfont.woff') format('woff');
+		url('../fonts/eenfont.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
 
 /* CUSTOM PROPERTIES */
 body {
+
+	/* Margin Center */
+	--center: auto;
+
+	/* gaps */
+	--gapUl: 1em;
+
+	/* border */
+	--radiusBorder: 5px;
+	--border: 2px;
+
+	/* animatie */
+	--mindriepixel: -3px;
+	--mintweepixel: -2px;
+	--mineenpixel: -1px;
+	--nulpixel: 0px;
+	--eenpixel: 1px;
+	--tweepixel: 2px;
+	--driepixel: 3px;
+	--mineendegree: -1deg;
+	--nuldegree: 0deg;
+	--eendegree: 1deg;
+	--oneidig: infinite;
+	--eenseconde: 1s;
+
+	/* Light modus kleuren */
+	--backgroundColorlight: #ffffff4d;
+	--backgroundOpacitylight: RGBA(223, 223, 223, 0.6);
+	--fontColorlight: #0909b4;
+	--fontsubColorlight: #000000;
+	--kleurBorderlight: #020202;
+	--textDropzonelight: #585858;
+	--stickyLight: #B2B2B2;
+	--sortableChosenlight: #3431ff;
+
+	/* Dark modus kleuren */
 	--backgroundColor: #141414;
+	--backgroundOpacity: RGBA(20, 20, 20, 0.6);
 	--fontColor: #ff0000;
-	--fontsubColor: white;
-	--kleurBorder: 	#B0B0B0;
+	--fontsubColor: #ffffff;
+	--kleurBorder: #020202;
 	--textDropzone: #585858;
 	--sticky: #4d4d4d69;
+	--sortableChosen: #ff5050;
+	--iconKleur: #6b6b6b;
 }
 
 
 /* ALGEMENE STYLING */
-*, *::after, *::before {
-  box-sizing:border-box;  
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
 }
 
-html, body {
-  font-family:eenfont, sans-serif;
-  color:#111;
-  background-color:var(--backgroundColor);
-  display: flex;
-  flex-direction: column;
-}
-
-ul{
-	position:relative;
-    display:flex;
-	gap:1em;
-	overflow-x: scroll;/*  Maak niet meer responsive */
-	overflow-y: hidden;
-    list-style-type: none;
+html,
+body {
+	font-family: eenfont, sans-serif;
+	color: var(--backgroundColor);
+	background-color: var(--backgroundColor);
 	display: flex;
-	flex-direction: row; 
+	flex-direction: column;
+}
+
+ul {
+	position: relative;
+	display: flex;
+	gap: var(--gapUl);
+	overflow-x: scroll;
+	overflow-y: hidden;
+	list-style-type: none;
+	display: flex;
+	flex-direction: row;
 	padding: 0;
 	margin: 0;
 }
@@ -52,7 +94,7 @@ ul::-webkit-scrollbar {
 }
 
 li {
-	position:relative;
+	position: relative;
 	flex: 0 0 6em;
 }
 
@@ -61,19 +103,18 @@ img {
 	width: 11em;
 }
 
-.alert {
-	position: absolute;
-	color: red;
-}
-
 /* grabbing */
 
 ul:not(#dropzone) li {
-	cursor:grab;
+	cursor: grab;
 }
 
-body.dragging ul:not(#dropzone) li { /* werkt niet */
-	cursor:grabbing;
+ul:not(#dropzone) li:focus {
+	box-shadow: 0 0 1em var(--kleurBorder);
+}
+
+body.dragging ul:not(#dropzone) li {
+	cursor: grabbing;
 }
 
 /* BRAND STYLING */
@@ -81,17 +122,18 @@ body.dragging ul:not(#dropzone) li { /* werkt niet */
 section h1 {
 	display: flex;
 	justify-content: center;
-	font-family:'Bebas Neue', cursive;
+	font-family: 'Bebas Neue', cursive;
 	color: var(--fontColor);
 	font-size: 2em;
 	letter-spacing: .1em;
 }
+
 h2 {
 	font-family: 'Dosis', sans-serif;
 	color: var(--fontColor);
 	text-transform: uppercase;
 	font-size: 1em;
-	margin-left: .6em;	
+	margin-left: .6em;
 	letter-spacing: .05em;
 }
 
@@ -105,6 +147,11 @@ h3 {
 /* HIER  ZIT ALLES IN VAN DE DROP ZONE */
 /* DROP ZONE */
 
+* sticky blijft op scherm */ section:nth-of-type(2) .scroll {
+	position: sticky;
+}
+
+/* styling ul van de dropzone */
 section:nth-of-type(3) ul {
 	position: relative;
 	height: 14em;
@@ -113,19 +160,56 @@ section:nth-of-type(3) ul {
 	font-family: 'Dosis', sans-serif;
 	color: var(--textDropzone);
 	letter-spacing: .02em;
-	border-radius: 5px;
+	border-radius: var(--radiusBorder);
 	margin-left: .3em;
 }
 
+/* styling voor tijdens het scrollen */
 section:nth-of-type(3).scroll {
 	background-color: var(--sticky);
 	position: sticky;
 	top: 0;
 	z-index: 100;
-	border: 2px;
-	border-radius: 5px;
+	border: var(--border);
+	border-radius: var(--radiusBorder);
 }
 
+/* focus voor de keyboard */
+ul#dropzone li:focus {
+	box-shadow: 0 0 1em var(--kleurBorder);
+}
+
+/* kruisje boven item in list */
+
+/* sticky blijft op scherm */
+section:nth-of-type(2) .scroll {
+	position: sticky;
+}
+
+/* styling ul van de dropzone */
+section:nth-of-type(3) ul {
+	position: relative;
+	height: 14em;
+	width: 99%;
+	display: flex;
+	font-family: 'Dosis', sans-serif;
+	color: var(--textDropzone);
+	letter-spacing: .02em;
+	border-radius: var(--radiusBorder);
+	margin-left: .3em;
+}
+
+/* styling voor tijdens het scrollen */
+section:nth-of-type(3).scroll {
+	background-color: var(--sticky);
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	border: var(--border);
+	border-radius: var(--radiusBorder);
+}
+
+/* focus voor de keyboard */
 ul#dropzone li:focus {
 	box-shadow: 0 0 1em var(--kleurBorder);
 }
@@ -134,13 +218,13 @@ ul#dropzone li:focus {
 
 section:nth-of-type(3) ul:first-of-type li:hover::after,
 section:nth-of-type(3) ul:first-of-type li:focus::after {
-	content:"x";
-	position:absolute;
-	right:.25rem;
-	top:0;
+	content: "x";
+	position: absolute;
+	right: .25rem;
+	top: 0;
 	color: var(--fontsubColor);
-	font-size:2em;
-	line-height:1em;
+	font-size: 2em;
+	line-height: 1em;
 	cursor: pointer;
 }
 
@@ -148,62 +232,542 @@ section:nth-of-type(3) ul:first-of-type li:focus::after {
 
 section:nth-of-type(3) ul:hover {
 	height: 14rem;
-	border: 1px dashed var(--kleurBorder);
+	border: 1px dashed var(--fontsubColor);
 	transition: ease;
-	transition-duration: 2s;
+	transition-duration: 1s;
 }
 
-/* text dropzone */ 
+/* text dropzone */
 
 section:nth-of-type(3) ul::before {
-	content:"Drop here";
-	position:absolute;
-	left:50%;
-	top:50%;
+	content: "Drop here";
+	position: absolute;
+	left: 50%;
+	top: 50%;
 	color: var(--textDropzone);
 	text-transform: uppercase;
-	transform:translate(-50%, -50%);
-	font-size:3em;
+	transform: translate(-50%, -50%);
+	font-size: 3em;
 	white-space: nowrap;
 }
+
 /* verwijderd text dropzone */
 
-/* dragging */ 
+/* dragging */
 
+/* styling dragging */
 body.dragging section:nth-of-type(3) {
 	width: 99%;
 	border: 2px;
 	border-radius: 5px;
-	background-color: var(--backgroundColor)
+	background-color: var(--fontsubColor)
 }
+
+/* styling dragging img */
 section:nth-of-type(3) img {
 	display: flex;
 	gap: 0;
 	height: 14rem;
-    width: 9rem;
+	width: 9rem;
 	margin: 0;
 	padding: 0;
 }
 
-/* microinteractie */ 
+/* hide vissibility voor keyboard */
+.hide-items li {
+	visibility: hidden;
+}
 
 /* logo */
 
-section:first-of-type:hover h1 {
-	animation-duration: 2s;
-	animation-name: slidein;
+/* text videoylan */
+section:first-of-type {
+	display: flex;
+	flex-wrap: nowrap;
 }
 
-  @keyframes slidein {
-	from {
-		margin-right: 100%;
-	  height: 300%;
-	}
-  
-	to {
-		margin-right: 0%;
-	  height: 100%;
-	}
-  }
+/* plaatsen in het midden tekst */
+section:first-of-type h1 {
+	margin: var(--center);
+}
 
-/* RESPONSIVE */ 
+/* button background verwijderen */
+section:first-of-type button {
+	background: transparent;
+	border: none;
+}
+
+/* icoon styling */
+section:first-of-type button i {
+	color: var(--iconKleur);
+	font-size: 1.5em;
+}
+
+
+/* animatie videoylan */
+section:first-of-type:not(button) h1 {
+	animation: shake var(--eenseconde) var(--oneidig);
+}
+
+@keyframes shake {
+	0% {
+		transform: translate(var(--eenpixel), var(--eenpixel)) rotate(var(--nuldegree));
+	}
+
+	10% {
+		transform: translate(var(--mineenpixel), var(--mintweepixel)) rotate(var(--mineendegree));
+	}
+
+	20% {
+		transform: translate(var(--mindriepixel), var(--nulpixel)) rotate(var(--eendegree));
+	}
+
+	30% {
+		transform: translate(var(--driepixel), var(--tweepixel)) rotate(var(--nuldegree));
+	}
+
+	40% {
+		transform: translate(var(--eenpixel), var(--eenpixel)) rotate(var(--eendegree));
+	}
+
+	50% {
+		transform: translate(var(--mineenpixel), var(--tweepixel)) rotate(var(--mineendegree));
+	}
+
+	60% {
+		transform: translate(var(--mindriepixel), var(--eenpixel)) rotate(var(--nuldegree));
+	}
+
+	70% {
+		transform: translate(var(--driepixel), var(--eenpixel)) rotate(var(--mineendegree));
+	}
+
+	80% {
+		transform: translate(var(--mineenpixel), var(--mineenpixel)) rotate(var(--eendegree));
+	}
+
+	90% {
+		transform: translate(var(--eenpixel), var(--tweepixel)) rotate(var(--nuldegree));
+	}
+
+	100% {
+		transform: translate(var(--eenpixel), var(--tweepixel)) rotate(var(--mineendegree));
+	}
+}
+
+/* RESPONSIVE */
+
+/*************/
+/* forbidden */
+/*************/
+body.forbidden section:nth-of-type(3) ul:first-of-type {
+	background: var(--backgroundColor)
+}
+
+body.forbidden section:nth-of-type(3) ul:first-of-type::before {
+	display: flex;
+	content: "Already in the list!";
+	font-family: 'Bebas Neue', cursive;
+	font-size: 4em;
+	color: var(--fontColor);
+	background: var(--backgroundOpacity);
+	z-index: 998;
+}
+
+body.forbidden ul:not(:first-of-type) li {
+	cursor: no-drop;
+}
+
+body.forbidden .sortable-chosen {
+	box-shadow: 0 0 1em var(--sortableChosen);
+}
+
+/* POP UP NIET MEER AAN TOEGEKOMEN VOOR INLOG */
+
+/* div:first-of-type{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.8;
+    z-index: 998;
+    height: 100%;
+    width: 100%;}
+
+#popup{
+    position: absolute;
+    z-index: 999;
+    left: 40%;
+    top: 40%;
+} */
+
+
+/* LIGHT MODE via knop*/
+
+.light-mode {
+	background-color: var(--backgroundColorlight);
+}
+
+.lightmodeh1en2 {
+	color: var(--fontColorlight);
+}
+
+.lightmodetext {
+	color: var(--fontsubColorlight);
+}
+
+.lightmodeForbidden {
+	background: var(--backgroundColorlight)
+}
+
+.lightmodeDropzone {
+	color: var(--textDropzonelight);
+}
+
+.stickyDropzone {
+	background-color: var(--stickyLight);
+}
+
+/************************************************************************* light modus via instellingen */
+
+@media screen and (prefers-color-scheme: light) {
+
+	html,
+	body {
+		font-family: eenfont, sans-serif;
+		color: var(--backgroundColorlight);
+		background-color: var(--backgroundColorlight);
+		display: flex;
+		flex-direction: column;
+	}
+
+	ul {
+		position: relative;
+		display: flex;
+		gap: var(--gapUl);
+		overflow-x: scroll;
+		overflow-y: hidden;
+		list-style-type: none;
+		display: flex;
+		flex-direction: row;
+		padding: 0;
+		margin: 0;
+	}
+
+	ul::-webkit-scrollbar {
+		display: flex;
+		display: none;
+	}
+
+	li {
+		position: relative;
+		flex: 0 0 6em;
+	}
+
+	img {
+		height: 15em;
+		width: 11em;
+	}
+
+	/* grabbing */
+
+	ul:not(#dropzone) li {
+		cursor: grab;
+	}
+
+	ul:not(#dropzone) li:focus {
+		box-shadow: 0 0 1em var(--kleurBorderlight);
+	}
+
+	body.dragging ul:not(#dropzone) li {
+		cursor: grabbing;
+	}
+
+	/* BRAND STYLING */
+
+	section h1 {
+		display: flex;
+		justify-content: center;
+		font-family: 'Bebas Neue', cursive;
+		color: var(--fontColorlight);
+		font-size: 2em;
+		letter-spacing: .1em;
+	}
+
+	h2 {
+		font-family: 'Dosis', sans-serif;
+		color: var(--fontColorlight);
+		text-transform: uppercase;
+		font-size: 1em;
+		margin-left: .6em;
+		letter-spacing: .05em;
+	}
+
+	h3 {
+		font-family: 'Dosis', sans-serif;
+		color: var(--fontsubColorlight);
+		margin-left: .6em;
+		letter-spacing: .05em;
+	}
+
+	/* HIER  ZIT ALLES IN VAN DE DROP ZONE */
+	/* DROP ZONE */
+
+	section:nth-of-type(2) .scroll {
+		position: sticky;
+	}
+
+	section:nth-of-type(3) ul {
+		position: relative;
+		height: 14em;
+		width: 99%;
+		display: flex;
+		font-family: 'Dosis', sans-serif;
+		color: var(--textDropzonelight);
+		letter-spacing: .02em;
+		border-radius: 5px;
+		margin-left: .3em;
+	}
+
+	section:nth-of-type(3).scroll {
+		background-color: var(--stickyLight);
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		border: 2px;
+		border-radius: 5px;
+	}
+
+	ul#dropzone li:focus {
+		box-shadow: 0 0 1em var(--kleurBorderlight);
+	}
+
+	/* kruisje boven item in list */
+
+	/* sticky blijft op scherm */
+	section:nth-of-type(2) .scroll {
+		position: sticky;
+	}
+
+	/* styling ul van de dropzone */
+	section:nth-of-type(3) ul {
+		position: relative;
+		height: 14em;
+		width: 99%;
+		display: flex;
+		font-family: 'Dosis', sans-serif;
+		color: var(--textDropzonelight);
+		letter-spacing: .02em;
+		border-radius: var(--radiusBorder);
+		margin-left: .3em;
+	}
+
+	/* styling voor tijdens het scrollen */
+	section:nth-of-type(3).scroll {
+		background-color: var(--stickyLight);
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		border: var(--border);
+		border-radius: var(--radiusBorder);
+	}
+
+	/* focus voor de keyboard */
+	ul#dropzone li:focus {
+		box-shadow: 0 0 1em var(--kleurBorderlight);
+	}
+
+	/* kruisje boven item in list */
+
+	section:nth-of-type(3) ul:first-of-type li:hover::after,
+	section:nth-of-type(3) ul:first-of-type li:focus::after {
+		content: "x";
+		position: absolute;
+		right: .25rem;
+		top: 0;
+		color: var(--fontsubColorlight);
+		font-size: 2em;
+		line-height: 1em;
+		cursor: pointer;
+	}
+
+	/* hover op drop zone */
+
+	section:nth-of-type(3) ul:hover {
+		height: 14rem;
+		border: 1px dashed var(--fontsubColorlight);
+		transition: ease;
+		transition-duration: 1s;
+	}
+
+	/* text dropzone */
+
+	section:nth-of-type(3) ul::before {
+		content: "Drop here";
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		color: var(--textDropzonelight);
+		text-transform: uppercase;
+		transform: translate(-50%, -50%);
+		font-size: 3em;
+		white-space: nowrap;
+	}
+
+	/* verwijderd text dropzone */
+
+	/* dragging */
+
+	/* styling dragging */
+	body.dragging section:nth-of-type(3) {
+		width: 99%;
+		border: 2px;
+		border-radius: 5px;
+		background-color: var(--fontsubColorlight)
+	}
+
+	/* styling dragging img */
+	section:nth-of-type(3) img {
+		display: flex;
+		gap: 0;
+		height: 14rem;
+		width: 9rem;
+		margin: 0;
+		padding: 0;
+	}
+
+	/* hide vissibility voor keyboard */
+	.hide-items li {
+		visibility: hidden;
+	}
+
+	/* logo */
+
+	/* text videoylan */
+	section:first-of-type {
+		display: flex;
+		flex-wrap: nowrap;
+	}
+
+	/* plaatsen in het midden tekst */
+	section:first-of-type h1 {
+		margin: var(--center);
+	}
+
+	/* button background verwijderen */
+	section:first-of-type button {
+		background: transparent;
+		border: none;
+	}
+
+	/* icoon styling */
+	section:first-of-type button i {
+		color: var(--iconKleur);
+		font-size: 1.5em;
+	}
+
+
+	/* animatie videoylan */
+	section:first-of-type:not(button) h1 {
+		animation: shake var(--eenseconde) var(--oneidig);
+	}
+
+	@keyframes shake {
+		0% {
+			transform: translate(var(--eenpixel), var(--eenpixel)) rotate(var(--nuldegree));
+		}
+
+		10% {
+			transform: translate(var(--mineenpixel), var(--mintweepixel)) rotate(var(--mineendegree));
+		}
+
+		20% {
+			transform: translate(var(--mindriepixel), var(--nulpixel)) rotate(var(--eendegree));
+		}
+
+		30% {
+			transform: translate(var(--driepixel), var(--tweepixel)) rotate(var(--nuldegree));
+		}
+
+		40% {
+			transform: translate(var(--eenpixel), var(--eenpixel)) rotate(var(--eendegree));
+		}
+
+		50% {
+			transform: translate(var(--mineenpixel), var(--tweepixel)) rotate(var(--mineendegree));
+		}
+
+		60% {
+			transform: translate(var(--mindriepixel), var(--eenpixel)) rotate(var(--nuldegree));
+		}
+
+		70% {
+			transform: translate(var(--driepixel), var(--eenpixel)) rotate(var(--mineendegree));
+		}
+
+		80% {
+			transform: translate(var(--mineenpixel), var(--mineenpixel)) rotate(var(--eendegree));
+		}
+
+		90% {
+			transform: translate(var(--eenpixel), var(--tweepixel)) rotate(var(--nuldegree));
+		}
+
+		100% {
+			transform: translate(var(--eenpixel), var(--tweepixel)) rotate(var(--mineendegree));
+		}
+	}
+
+	/* RESPONSIVE */
+
+	/*************/
+	/* forbidden */
+	/*************/
+	body.forbidden section:nth-of-type(3) ul:first-of-type {
+		background: var(--backgroundColorlight)
+	}
+
+	body.forbidden section:nth-of-type(3) ul:first-of-type::before {
+		display: flex;
+		content: "Already in the list!";
+		font-family: 'Bebas Neue', cursive;
+		font-size: 4em;
+		color: var(--fontColorlight);
+		background: var(--backgroundOpacitylight);
+		z-index: 998;
+	}
+
+	body.forbidden ul:not(:first-of-type) li {
+		cursor: no-drop;
+	}
+
+	body.forbidden .sortable-chosen {
+		box-shadow: 0 0 1em var(--sortableChosenlight);
+	}
+
+	/* LIGHT MODE via knop*/
+
+	.light-mode {
+		background-color: var(--backgroundColor);
+	}
+
+	.lightmodeh1en2 {
+		color: var(--fontColor);
+	}
+
+	.lightmodetext {
+		color: var(--fontsubColor);
+	}
+
+	.lightmodeForbidden {
+		background: var(--backgroundColor)
+	}
+
+	.lightmodeDropzone {
+		color: var(--textDropzone);
+	}
+
+	.stickyDropzone {
+		background-color: var(--sticky);
+	}
+}
