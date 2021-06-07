@@ -18,7 +18,15 @@ Markdown cheat cheet: [Hulp bij het schrijven van Markdown](https://github.com/a
 7. https://www.w3schools.com/cssref/css3_pr_transform.asp
 8. https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path
 9. https://bennettfeely.com/clippy/
-
+10. Jimmy
+11. Sam
+12. https://stackoverflow.com/questions/17391364/what-is-the-difference-between-the-selectors-class-class-and-class-class/17391397
+13. https://stackoverflow.com/questions/9780443/how-to-select-all-children-of-an-element-with-javascript-and-change-css-property
+14. https://stackoverflow.com/questions/53524781/how-to-set-focus-in-li-elements-using-tabindex
+15. https://greensock.com/forums/topic/16154-documentqueryselectorall-not-working/
+16. https://stackoverflow.com/questions/6120931/how-to-count-certain-elements-in-array
+17. https://stackoverflow.com/questions/44345926/javascript-foreach-loop-on-list-items/44345979
+18. https://css-tricks.com/the-peculiar-magic-of-flexbox-and-auto-margins/
 
 
 ## Je 'posts' (je code-dagboek)
@@ -49,3 +57,26 @@ Je werk zo ver: Ik ben begonnen met de Burger King logo ging tot nu toe goed, nu
 Wat er goed ging: Bij de valstreepjes niet te veel streepjes anders wordt het al snel wat moeilijker, dus hou het bij twee en als je tijd over hebt kan je die andere streepjes maken.
 Wat er lastig is: Animeren ging wel even moeizaam was vooral even veel opzoeken van hoe werkt dit? Maar het werkt gewoon een beetje als After Effects met keyframes. En animaties combineren met elkaar vond ik lastig.
 Wat je plannen zijn: Verder aan de DPD logo werken.
+
+# opdracht 2
+1e voortgangsgesprek (Sam):
+Hoe ga ik dit het best aanpakken, hij heeft mij tips gegeven hoe ik dingen het beste kon doen zo kon eindelijk beginnen. Begin eerst met content en je website stijlen ga vanuit daardan verder. Een list is handig en probeer eerst zoveel content te verzamelen.
+Dit heb ik toen ook gedaan en vanuit daar kon ik verder. 
+
+2e voortgangsgesprek (Sanne):
+Geholpen met uitzoeken van Sortable, ik snapte er eerst helemaal niks van daarna heb ik aan de bel getrokken en heb Sanne toen ingeschakeld. We hadden een gesprekje ingepland waarbij hij een codepen klaar had staan en dus wij zo door de Sortable heen gingen.
+Ik kon dit dan makkelijk in mijn eigen ontwerp implementeren en ik werd er heel blij van! Code kan leuk zijn als het maar werkt. 
+
+3e voortgangsgesprek (Sanne):
+Volgende dag weer gesprek met Sanne ingepland ik heb laten zien wat heb ik gedaan en waar ik tegen aan liep. Ik had moeite met de keyboard toetsen dus dit hadden wij behandeld in de les. Hij heeft mij toen laten zien hoe je de tabIndex makkelijk kan gebruiken.
+Met Javascript. Ik ben toen vanuit daar verder gegaan met mijn eigen code en heb nog tips gevraagd wat ik aan kon toevoegen een counter om mijn lijst te tellen zou handig zijn werd toen verteld.
+
+4e voortgangsgesprek (Jimmy): 
+Op dezelfde dag had ik ook een gesprek met Jimmy, ik liep al tegen een probleem aan dat ik niet dezelfde items in de dropzone kon zetten ik heb dit toen met Jimmy samen geprobeerd uit te zoeken maar helaas mocht het niet baaten en zijn we er niet uitgekomen.
+Ook moest ik weg naar een afspraak en konden wij dit niet binnen de tijd oplossen. Jimmy heeft dit toen met Sanne besproken en Sanne kwam met een oplossing die Jimmy mij later opstuurde, ik heb het toen bekeken en begrepen heb daarna in mijn eigen ontwerp
+geimplementeerd.
+
+5e voortgangsgesprek (Jimmy):
+Ook als laatst heb ik een gesprek gehad met Jimmy ik liep nog tegen een laatste probleem aan ik had een probleem met het tellen van mijn lijst hij telde wel op maar wanneer hij eentje verwijderdde ging het kapot. Ik ben toen gaan aankloppen bij Jimmy en heeft
+mij geholpen om dit op te lossen. Wij zijn eerst samen gaan beseffen vanaf het begin wat er fout is gegaan. Daarna konden we zo makkelijk te fout oplossen. BELANGRIJKE TIP ALS JE AAN HET CODEREN BENT CONSOLE LOG ALLES!!!
+
