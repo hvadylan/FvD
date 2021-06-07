@@ -18,22 +18,6 @@ new Sortable(
 
 			nieuweFilm.tabIndex = 0;
 
-			if (geclonedFilm.classList.contains("liked")) {
-				const alertMessage = document.querySelector(".alert");
-				alertMessage.textContent = "Deze film staat al in de lijst"
-				
-				setTimeout(function() {
-					alertMessage.textContent = ""
-				}, 2000);
-
-				nieuweFilm.remove();
-			}	
-
-			else {
-				geclonedFilm.classList.add("liked");
-				console.log("voeg nieuwe film toe");
-			}
-			
 			nieuweFilm.addEventListener ('keydown', function(event){
 				if (event.key == 'Backspace') {
 					verwijderFilm(this);
